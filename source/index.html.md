@@ -5,8 +5,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - shell: cURL
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
+
 
 includes:
   - errors
@@ -22,28 +21,15 @@ Multiple integrations exist already for popular CMS (Content Management Systems)
 
 # Authentication
 
-> To authorize, use this code:
-
-```shell
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+All authentication for the API is done on a per request basis by passing the required parameters for the end point. 
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+Each endpoint will reference the required authentication parameters indivdually.
 </aside>
 
-# Kittens
+# Visit Endpoints
 
+# Kittens
 ## Get All Kittens
 
 ```ruby
