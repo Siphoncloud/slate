@@ -72,7 +72,6 @@ Parameter | Type | Description
 --------- | ------- | -----------
 apitoken | string | Authentication parameter that is unique per filter 
 apiid | int | Authentication parameter that is unique per filter
-
 remote_addr | string | Either an IPv4 or IPv6 address of the visitor
 remote_port | int | Port that the connection was made to the web server on 
 server_protocl | string | The hypertext transfer protocol version. Typically either "HTTP 1.1" or "HTTP 1.0"
@@ -121,10 +120,10 @@ http_x_forwarded_for | string | Raw header added by Cloudflare
 
 Parameter | Type | Description
 --------- | ------- | ----------- 
-request_full_response | bool | Set to true if you would like additional details on response
+request_full_response | bool | Set to 'true' if you would like additional details on response
 
 
-## Get a Specific Kitten
+## Solve a captcha
 
 ```shell
 curl "http://example.com/api/kittens/2"
@@ -157,7 +156,7 @@ Parameter | Description
 --------- | -----------
 ID | The ID of the kitten to retrieve
 
-## Delete a Specific Kitten
+## Record a maneuver
 
 ```shell
 curl "http://example.com/api/kittens/2"
