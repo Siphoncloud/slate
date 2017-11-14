@@ -19,16 +19,8 @@ Welcome to the Siphon API! You can use our API to access Siphon API endpoints, w
 
 Multiple integrations exist already for popular CMS (Content Management Systems) like WordPress and Joomla, we also have a full integration for PHP already that can be downloaded inside your [dashboard](https://siphoncloud.com/dashboard/traffic-filter-resources.php).
 
-# Authentication
-
-All authentication for the API is done on a per request basis by passing the required parameters for the end point. 
-
-<aside class="notice">
-Each endpoint will reference the required authentication parameters indivdually.
-</aside>
-
 # Traffic Endpoints
-Visit endpoints allow for the sending of website traffic and receiving real-time judgements based on filter settings
+These endpoints allow for the sending of website traffic and receiving real-time judgements based on filter settings
 # Visit
 All visit endpoints are located at https://siphon-api.com/v3/visit/
 ## New Visit
