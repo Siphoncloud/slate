@@ -67,6 +67,7 @@ This endpoint allows processing of a new visitor to a website where no previous 
 `POST https://siphon-api.com/v3/visit/new`
 
 ### Required Query Parameters
+All of the information being sent to Siphon should not be processed by your system in any way as Siphon will perform its own parsing of fields, this means the data should be "raw".
 
 Parameter | Type | Description
 --------- | ------- | -----------
@@ -85,23 +86,21 @@ cookies | string or null | List of cookies the client is using separated by semi
 request_method | string | Type of request of the client made, typically is one of the following: "post", "put", or "get"
 request_time | string | A unix timestamp of when the request was first received
 refer | string | Refer of the visitor
-
-### Additional Required Query Parameters
-Parameter | Type | Description
---------- | ------- | -----------
 server_software | string | One of the following must be sent: apache,nginx,iis,tomcat,lighttpd,other
 server_version | string | The software version of server software that has received this request
 
 <aside class="notice">
-One of the following must also be sent
+The requested URL must also be sent in one of the following ways
 </aside> 
 
+#### Separated URL parameters
 Parameter | Type | Description
 --------- | ------- | -----------
 host | string | Domain name of the server
 script_name | string | URL path to the script being requested by the client
 query_string | string | The query parameters of the request
 
+#### Single URL parameter
 Parameter | Type | Description
 --------- | ------- | -----------
 url | string | The complete url for the request. Siphon will then parse this itself

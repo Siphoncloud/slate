@@ -291,6 +291,8 @@ Each endpoint will reference the required authentication parameters indivdually.
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>POST https://siphon-api.com/v3/visit/new</code></p>
 <h3 id='required-query-parameters'>Required Query Parameters</h3>
+<p>All of the information being sent to Siphon should not be processed by your system in any way as Siphon will perform its own parsing of fields, this means the data should be &quot;raw&quot;.</p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -373,15 +375,6 @@ Each endpoint will reference the required authentication parameters indivdually.
 <td>string</td>
 <td>Refer of the visitor</td>
 </tr>
-</tbody></table>
-<h3 id='additional-required-query-parameters'>Additional Required Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
 <tr>
 <td>server_software</td>
 <td>string</td>
@@ -395,9 +388,9 @@ Each endpoint will reference the required authentication parameters indivdually.
 </tbody></table>
 
 <aside class="notice">
-One of the following must also be sent
+The requested URL must also be sent in one of the following ways
 </aside> 
-
+<h4 id='separated-url-parameters'>Separated URL parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -421,7 +414,7 @@ One of the following must also be sent
 <td>The query parameters of the request</td>
 </tr>
 </tbody></table>
-
+<h4 id='single-url-parameter'>Single URL parameter</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
