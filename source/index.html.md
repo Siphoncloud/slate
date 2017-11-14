@@ -17,7 +17,7 @@ search: true
 
 Welcome to the Siphon API! You can use our API to access Siphon API endpoints, which can allow you to filter traffic.
 
-Multiple integrations exist already for popular CMS (Content Management Systems) like WordPress and Joomla, we also have a full integration for PHP already that can be downloaded inside your dashboard.
+Multiple integrations exist already for popular CMS (Content Management Systems) like WordPress and Joomla, we also have a full integration for PHP already that can be downloaded inside your [dashboard](https://siphoncloud.com/dashboard/traffic-filter-resources.php).
 
 # Authentication
 
@@ -27,36 +27,17 @@ All authentication for the API is done on a per request basis by passing the req
 Each endpoint will reference the required authentication parameters indivdually.
 </aside>
 
-# Visit Endpoints
-
-# Kittens
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+# Traffic Endpoints
+Visit endpoints allow for the sending of website traffic and receiving real-time judgements based on filter settings
+# Visit
+All visit endpoints are located at https://siphon-api.com/v3/visit/
+## New Visit
 
 ```shell
 curl "http://example.com/api/kittens"
   -H "Authorization: meowmeowmeow"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
 
 > The above command returns JSON structured like this:
 
@@ -79,49 +60,75 @@ let kittens = api.kittens.get();
 ]
 ```
 
-This endpoint retrieves all kittens.
+This endpoint allows processing of a new visitor to a website where no previous cookie is detected.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`POST https://siphon-api.com/v3/visit/new`
 
-### Query Parameters
+### Required Query Parameters
 
-Parameter | Default | Description
+Parameter | Type | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+apitoken | string | Authentication parameter that is unique per filter 
+apiid | int | Authentication parameter that is unique per filter
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
+remote_addr | string | Either an IPv4 or IPv6 address of the visitor
+remote_port | int | Port that the connection was made to the web server on 
+server_protocl | string | The hypertext transfer protocol version. Typically either "HTTP 1.1" or "HTTP 1.0"
+connection | string | either "keep-alive" or "close"
+user_agent | string | Raw user-agent string received from the client
+upgrade_insecure_requests | int | Raw HTTP header sent by the client
+http_accept | string | Raw HTTP header sent by the client
+accept_encoding | string | Raw HTTP header sent by the client
+accept_language | string | Raw HTTP header sent by the client
+cookies | string or null | List of cookies the client is using separated by semicolons or a null value for no cookies
+request_method | string | Type of request of the client made, typically is one of the following: "post", "put", or "get"
+request_time | string | A unix timestamp of when the request was first received
+refer | string | Refer of the visitor
+
+### Additional Required Query Parameters
+Parameter | Type | Description
+--------- | ------- | -----------
+server_software | string | One of the following must be sent: apache,nginx,iis,tomcat,lighttpd,other
+server_version | string | The software version of server software that has received this request
+
+<aside class="notice">
+One of the following must also be sent
+</aside> 
+
+Parameter | Type | Description
+--------- | ------- | -----------
+host | string | Domain name of the server
+script_name | string | URL path to the script being requested by the client
+query_string | string | The query parameters of the request
+
+Parameter | Type | Description
+--------- | ------- | -----------
+url | string | The complete url for the request. Siphon will then parse this itself
+
+### Optional Query Parameters
+Siphon fully supports the use of Cloudflare and as such accepts the [custom headers](https://support.cloudflare.com/hc/en-us/articles/200170986-How-does-Cloudflare-handle-HTTP-Request-headers-) that Cloudflare adds to requests
+
+Parameter | Type | Description
+--------- | ------- | -----------
+http_cf_ray | string | Raw header added by Cloudflare
+http_cf_visitor | string | Raw header added by Cloudflare
+http_cf_connecting_ip | string | Raw header added by Cloudflare
+http_x_forwarded_proto | string | Raw header added by Cloudflare
+http_x_forwarded_for | string | Raw header added by Cloudflare
+
+
+Parameter | Type | Description
+--------- | ------- | ----------- 
+request_full_response | bool | Set to true if you would like additional details on response
+
 
 ## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
 
 ```shell
 curl "http://example.com/api/kittens/2"
   -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
 ```
 
 > The above command returns JSON structured like this:
@@ -151,20 +158,6 @@ Parameter | Description
 ID | The ID of the kitten to retrieve
 
 ## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
 
 ```shell
 curl "http://example.com/api/kittens/2"

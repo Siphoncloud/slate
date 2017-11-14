@@ -92,11 +92,11 @@ $nav-footer-border-color: #666 !default;
 $search-box-border-color: #666 !default;
 
 // Section headers
-.toc-wrapper [data-title="Visit Endpoints"] {
+.toc-wrapper [data-title="Traffic Endpoints"] {
   text-transform: uppercase;
   margin-top: 1em;
   margin-bottom: 0.5em;
-  border-bottom: 1px solid $nav-footer-border-color;
+  color:#35B3C1;
   font-weight: bold;
 }
 
