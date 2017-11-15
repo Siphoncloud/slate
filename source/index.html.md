@@ -26,8 +26,43 @@ All visit endpoints are located at https://siphon-api.com/v3/visit/
 ## New Visit
 
 ```shell
-curl "http://example.com/api/kittens"
+curl "https://siphon-api.com/v3/visit/new"
   -H "Authorization: meowmeowmeow"
+  
+curl --request POST \
+  --url https://siphon-api.com/v3/visit/new/ \
+  --header 'cache-control: no-cache' \
+  --header 'content-type: application/json' \
+  --data '{ \
+    "username": "testpress", 
+    "password": "demo"
+    "apitoken": "123abcToken", \
+    "apiid": "123abcId", \
+    "remote_addr": "192.168.1.1", \
+    "remote_port": "16017", \
+    "server_protocl": "HTTP/1.1", \
+    "connection": "keep-alive", \
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36", \
+    "upgrade_insecure_requests": "1", \
+    "http_accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8", \
+    "accept_encoding": "gzip", \
+    "accept_language": "en-US,en;q=0.9", \
+    "cookies": "__cfduid=d130c6d17df1705100ccca3f68ac3a5b61506533527; _ga=GA1.2.621831019.1506625387; _gid=GA1.2.506736803.1510756910;", \
+    "request_method": "get", \
+    "request_time": "1510780023", \
+    "refer": "", \
+    "server_software": "nginx", \
+    "server_version": "1.6.2", \
+    "host": "example.com", \
+    "script_name": "/something.html", \
+    "query_string": "var1=something", \
+    "http_cf_ray": "3be535j29bac91dc-EWR", \
+    "http_cf_visitor": "{\"scheme\":\"https\"}", \
+    "http_cf_connecting_ip": "192.168.1.2", \
+    "http_x_forwarded_proto": "https", \
+    "http_x_forwarded_for": "192.168.1.1", \
+    "request_full_response": "true" \
+   }'
 ```
 
 
@@ -36,18 +71,21 @@ curl "http://example.com/api/kittens"
 ```json
 [
   {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
+    "do": "url",
+    "sendto": "https://example.com/lander1.hml",
+    "fhid": 753159,
+    "type": "h",
+    "result": "t",
+    "geo": {
+      "country": "US",
+      "region": "pa",
+      "city": "philadelphia",
+      "postcode": "19102"
+    },
+    "potential_bot_score": "0.0",
+    "proxy_likelyhood": "0.0",
+    "os_name": "windows",
+    "browser_name": "chrome"
   }
 ]
 ```
