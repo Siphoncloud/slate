@@ -21,11 +21,12 @@ Multiple integrations exist already for popular CMS (Content Management Systems)
 
 # Traffic Endpoints
 These endpoints allow for the sending of website traffic and receiving real-time judgements based on filter settings. A simple flow chart has also been created to demonstrate the logic for using these endpoints in your application effectively. 
+<br><br>
 <a href='images/traffic_endpoints_logic_flow.png'><img src="images/traffic_endpoints_logic_flow.png"></a>
 # Visit
 
 ## New Visit
-<blockquote><p>Replace `123abcToken` & `123abcId` with your own values</p></blockquote>
+<blockquote><p>Replace <code>123abcToken</code> & <code>123abcId</code> with your own values</p></blockquote>
 
 ```shell 
 curl --request POST \
@@ -159,7 +160,7 @@ curl --request POST \
    }'
 ```
 
-> The above command returns JSON structured exactly like the visit/new/ endpoint returns
+> The above command returns JSON structured exactly like the [visit/new/ endpoint](#new-visit) returns
 
 
 This endpoint allows clients to solve Siphon supplied captchas.

@@ -256,9 +256,10 @@
 <p>Multiple integrations exist already for popular CMS (Content Management Systems) like WordPress and Joomla, we also have a full integration for PHP already that can be downloaded inside your <a href="https://siphoncloud.com/dashboard/traffic-filter-resources.php">dashboard</a>.</p>
 <h1 id='traffic-endpoints'>Traffic Endpoints</h1>
 <p>These endpoints allow for the sending of website traffic and receiving real-time judgements based on filter settings. A simple flow chart has also been created to demonstrate the logic for using these endpoints in your application effectively. 
+<br><br>
 <a href='images/traffic_endpoints_logic_flow.png'><img src="images/traffic_endpoints_logic_flow.png"></a></p>
 <h1 id='visit'>Visit</h1><h2 id='new-visit'>New Visit</h2>
-<blockquote><p>Replace `123abcToken` & `123abcId` with your own values</p></blockquote>
+<blockquote><p>Replace <code>123abcToken</code> & <code>123abcId</code> with your own values</p></blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
   --url https://siphon-api.com/v3/visit/new/ <span class="se">\</span>
   --header <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
@@ -514,7 +515,7 @@ The requested URL must also be sent in one of the following ways
    }'</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured exactly like the visit/new/ endpoint returns</p>
+<p>The above command returns JSON structured exactly like the <a href="#new-visit">visit/new/ endpoint</a> returns</p>
 </blockquote>
 
 <p>This endpoint allows clients to solve Siphon supplied captchas.</p>
