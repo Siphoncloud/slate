@@ -24,7 +24,7 @@ These endpoints allow for the sending of website traffic and receiving real-time
 # Visit
 All visit endpoints are located at https://siphon-api.com/v3/visit/
 ## New Visit
-> Replace "123abcToken" & "123abcId" with your own values
+
 ```shell 
 curl --request POST \
   --url https://siphon-api.com/v3/visit/new/ \
@@ -61,7 +61,7 @@ curl --request POST \
     "request_full_response": "true" \
    }'
 ```
-
+> Replace "123abcToken" & "123abcId" with your own values
 
 > The above command returns JSON structured like this:
 
