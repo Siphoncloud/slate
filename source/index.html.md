@@ -24,6 +24,7 @@ These endpoints allow for the sending of website traffic and receiving real-time
 # Visit
 All visit endpoints are located at https://siphon-api.com/v3/visit/
 ## New Visit
+<blockquote><p>Replace *"123abcToken"* & *"123abcId"* with your own values</p></blockquote>
 
 ```shell 
 curl --request POST \
@@ -44,7 +45,7 @@ curl --request POST \
     "http_accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8", \
     "accept_encoding": "gzip", \
     "accept_language": "en-US,en;q=0.9", \
-    "cookies": "__cfduid=d130c6d17df1705100ccca3f68ac3a5b61506533527; _ga=GA1.2.621831019.1506625387; _gid=GA1.2.506736803.1510756910;", \
+    "cookies": "__cfduid=d130c6d17df1705100ccca3f68ac3a5b61506533527;", \
     "request_method": "get", \
     "request_time": "1510780023", \
     "refer": "", \
@@ -61,7 +62,6 @@ curl --request POST \
     "request_full_response": "true" \
    }'
 ```
-<blockquote><p>Replace *"123abcToken"* & *"123abcId"* with your own values</p></blockquote>
 
 > The above command returns JSON structured like this:
 

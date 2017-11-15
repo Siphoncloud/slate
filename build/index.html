@@ -255,7 +255,9 @@
 <p>These endpoints allow for the sending of website traffic and receiving real-time judgements based on filter settings</p>
 <h1 id='visit'>Visit</h1>
 <p>All visit endpoints are located at https://siphon-api.com/v3/visit/</p>
-<h2 id='new-visit'>New Visit</h2><pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
+<h2 id='new-visit'>New Visit</h2>
+<blockquote><p>Replace *"123abcToken"* & *"123abcId"* with your own values</p></blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
   --url https://siphon-api.com/v3/visit/new/ <span class="se">\</span>
   --header <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
   --header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
@@ -273,7 +275,7 @@
     "http_accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8", \
     "accept_encoding": "gzip", \
     "accept_language": "en-US,en;q=0.9", \
-    "cookies": "__cfduid=d130c6d17df1705100ccca3f68ac3a5b61506533527; _ga=GA1.2.621831019.1506625387; _gid=GA1.2.506736803.1510756910;", \
+    "cookies": "__cfduid=d130c6d17df1705100ccca3f68ac3a5b61506533527;", \
     "request_method": "get", \
     "request_time": "1510780023", \
     "refer": "", \
@@ -290,8 +292,6 @@
     "request_full_response": "true" \
    }'</span>
 </code></pre>
-<blockquote><p>Replace *"123abcToken"* & *"123abcId"* with your own values</p></blockquote>
-
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
