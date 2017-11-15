@@ -25,10 +25,7 @@ These endpoints allow for the sending of website traffic and receiving real-time
 All visit endpoints are located at https://siphon-api.com/v3/visit/
 ## New Visit
 
-```shell
-curl "https://siphon-api.com/v3/visit/new"
-  -H "Authorization: meowmeowmeow"
-  
+```shell 
 curl --request POST \
   --url https://siphon-api.com/v3/visit/new/ \
   --header 'cache-control: no-cache' \
@@ -69,25 +66,23 @@ curl --request POST \
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "do": "url",
-    "sendto": "https://example.com/lander1.hml",
-    "fhid": 753159,
-    "type": "h",
-    "result": "t",
-    "geo": {
-      "country": "US",
-      "region": "pa",
-      "city": "philadelphia",
-      "postcode": "19102"
-    },
-    "potential_bot_score": "0.0",
-    "proxy_likelyhood": "0.0",
-    "os_name": "windows",
-    "browser_name": "chrome"
-  }
-]
+{
+  "do": "url",
+  "sendto": "https://example.com/lander1.hml",
+  "fhid": 753159,
+  "type": "h",
+  "result": "t",
+  "geo": {
+    "country": "US",
+    "region": "pa",
+    "city": "philadelphia",
+    "postcode": "19102"
+  },
+  "potential_bot_score": "0.0",
+  "proxy_likelyhood": "0.0",
+  "os_name": "windows",
+  "browser_name": "chrome"
+}
 ```
 
 This endpoint allows processing of a new visitor to a website where no previous cookie is detected.

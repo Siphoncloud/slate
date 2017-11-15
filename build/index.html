@@ -255,10 +255,7 @@
 <p>These endpoints allow for the sending of website traffic and receiving real-time judgements based on filter settings</p>
 <h1 id='visit'>Visit</h1>
 <p>All visit endpoints are located at https://siphon-api.com/v3/visit/</p>
-<h2 id='new-visit'>New Visit</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://siphon-api.com/v3/visit/new"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-
-curl --request POST <span class="se">\</span>
+<h2 id='new-visit'>New Visit</h2><pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
   --url https://siphon-api.com/v3/visit/new/ <span class="se">\</span>
   --header <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
   --header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
@@ -296,25 +293,23 @@ curl --request POST <span class="se">\</span>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"do"</span><span class="p">:</span><span class="w"> </span><span class="s2">"url"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"sendto"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/lander1.hml"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fhid"</span><span class="p">:</span><span class="w"> </span><span class="mi">753159</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"h"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"t"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"geo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pa"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"philadelphia"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19102"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"potential_bot_score"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"proxy_likelyhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"os_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"windows"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"browser_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chrome"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"do"</span><span class="p">:</span><span class="w"> </span><span class="s2">"url"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"sendto"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/lander1.hml"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fhid"</span><span class="p">:</span><span class="w"> </span><span class="mi">753159</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"h"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"t"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"geo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pa"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"philadelphia"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19102"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"potential_bot_score"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"proxy_likelyhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"os_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"windows"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"browser_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chrome"</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint allows processing of a new visitor to a website where no previous cookie is detected.</p>
 <h3 id='http-request'>HTTP Request</h3>
