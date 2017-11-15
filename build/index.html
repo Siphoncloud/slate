@@ -550,9 +550,12 @@ The requested URL must also be sent in one of the following ways
     "query_string": "var5=something6" \
 </span></code></pre>
 <blockquote>
-<p>The above command returns a response code of 200 when the maneuver is received</p>
+<p>The above command returns JSON structured like this:</p>
 </blockquote>
-
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>This endpoint allows the recording of maneuvers on a site by a client after a visit</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST https://siphon-api.com/v3/visit/maneuver/</code></p>
@@ -635,7 +638,7 @@ The requested URL must also be sent in one of the following ways
 <tr>
 <td>400</td>
 <td>Bad Request</td>
-<td>Your request is trying to access an unknown endpoint.</td>
+<td>Your request is malformed.</td>
 </tr>
 <tr>
 <td>401</td>
@@ -646,11 +649,6 @@ The requested URL must also be sent in one of the following ways
 <td>402</td>
 <td>Payment Required</td>
 <td>Your account does not have an active subscription</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden</td>
-<td>The kitten requested is hidden for administrators only.</td>
 </tr>
 <tr>
 <td>404</td>

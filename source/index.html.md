@@ -190,8 +190,13 @@ curl --request POST \
     "query_string": "var5=something6" \
 ```
 
-> The above command returns a response code of 200 when the maneuver is received
+> The above command returns JSON structured like this:
 
+```json
+{
+  "result": "success"
+}
+```
 
 This endpoint allows the recording of maneuvers on a site by a client after a visit
 
