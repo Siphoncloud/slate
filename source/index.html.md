@@ -61,7 +61,7 @@ curl --request POST \
     "request_full_response": "true" \
    }'
 ```
-> Replace "123abcToken" & "123abcId" with your own values
+<blockquote><p>Replace *"123abcToken"* & *"123abcId"* with your own values</p></blockquote>
 
 > The above command returns JSON structured like this:
 

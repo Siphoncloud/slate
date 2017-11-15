@@ -255,46 +255,44 @@
 <p>These endpoints allow for the sending of website traffic and receiving real-time judgements based on filter settings</p>
 <h1 id='visit'>Visit</h1>
 <p>All visit endpoints are located at https://siphon-api.com/v3/visit/</p>
-<h2 id='new-visit'>New Visit</h2>
-<blockquote>
-<p>Replace &quot;123abcToken&quot; &amp; &quot;123abcId&quot; with your own values
-<code>shell 
-curl --request POST \
-  --url https://siphon-api.com/v3/visit/new/ \
-  --header &#39;cache-control: no-cache&#39; \
-  --header &#39;content-type: application/json&#39; \
-  --data &#39;{ \
-    &quot;username&quot;: &quot;testpress&quot;, 
-    &quot;password&quot;: &quot;demo&quot;
-    &quot;apitoken&quot;: &quot;123abcToken&quot;, \
-    &quot;apiid&quot;: &quot;123abcId&quot;, \
-    &quot;remote_addr&quot;: &quot;192.168.1.1&quot;, \
-    &quot;remote_port&quot;: &quot;16017&quot;, \
-    &quot;server_protocl&quot;: &quot;HTTP/1.1&quot;, \
-    &quot;connection&quot;: &quot;keep-alive&quot;, \
-    &quot;user_agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36&quot;, \
-    &quot;upgrade_insecure_requests&quot;: &quot;1&quot;, \
-    &quot;http_accept&quot;: &quot;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8&quot;, \
-    &quot;accept_encoding&quot;: &quot;gzip&quot;, \
-    &quot;accept_language&quot;: &quot;en-US,en;q=0.9&quot;, \
-    &quot;cookies&quot;: &quot;__cfduid=d130c6d17df1705100ccca3f68ac3a5b61506533527; _ga=GA1.2.621831019.1506625387; _gid=GA1.2.506736803.1510756910;&quot;, \
-    &quot;request_method&quot;: &quot;get&quot;, \
-    &quot;request_time&quot;: &quot;1510780023&quot;, \
-    &quot;refer&quot;: &quot;&quot;, \
-    &quot;server_software&quot;: &quot;nginx&quot;, \
-    &quot;server_version&quot;: &quot;1.6.2&quot;, \
-    &quot;host&quot;: &quot;example.com&quot;, \
-    &quot;script_name&quot;: &quot;/something.html&quot;, \
-    &quot;query_string&quot;: &quot;var1=something&quot;, \
-    &quot;http_cf_ray&quot;: &quot;3be535j29bac91dc-EWR&quot;, \
-    &quot;http_cf_visitor&quot;: &quot;{\&quot;scheme\&quot;:\&quot;https\&quot;}&quot;, \
-    &quot;http_cf_connecting_ip&quot;: &quot;192.168.1.2&quot;, \
-    &quot;http_x_forwarded_proto&quot;: &quot;https&quot;, \
-    &quot;http_x_forwarded_for&quot;: &quot;192.168.1.1&quot;, \
-    &quot;request_full_response&quot;: &quot;true&quot; \
-   }&#39;
-</code></p>
+<h2 id='new-visit'>New Visit</h2><pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
+  --url https://siphon-api.com/v3/visit/new/ <span class="se">\</span>
+  --header <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  --header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  --data <span class="s1">'{ \
+    "username": "testpress", 
+    "password": "demo"
+    "apitoken": "123abcToken", \
+    "apiid": "123abcId", \
+    "remote_addr": "192.168.1.1", \
+    "remote_port": "16017", \
+    "server_protocl": "HTTP/1.1", \
+    "connection": "keep-alive", \
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36", \
+    "upgrade_insecure_requests": "1", \
+    "http_accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8", \
+    "accept_encoding": "gzip", \
+    "accept_language": "en-US,en;q=0.9", \
+    "cookies": "__cfduid=d130c6d17df1705100ccca3f68ac3a5b61506533527; _ga=GA1.2.621831019.1506625387; _gid=GA1.2.506736803.1510756910;", \
+    "request_method": "get", \
+    "request_time": "1510780023", \
+    "refer": "", \
+    "server_software": "nginx", \
+    "server_version": "1.6.2", \
+    "host": "example.com", \
+    "script_name": "/something.html", \
+    "query_string": "var1=something", \
+    "http_cf_ray": "3be535j29bac91dc-EWR", \
+    "http_cf_visitor": "{\"scheme\":\"https\"}", \
+    "http_cf_connecting_ip": "192.168.1.2", \
+    "http_x_forwarded_proto": "https", \
+    "http_x_forwarded_for": "192.168.1.1", \
+    "request_full_response": "true" \
+   }'</span>
+</code></pre>
+<blockquote><p>Replace *"123abcToken"* & *"123abcId"* with your own values</p></blockquote>
 
+<blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
