@@ -262,17 +262,15 @@
   --header <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
   --header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   --data <span class="s1">'{ \
-    "username": "testpress", 
-    "password": "demo"
     "apitoken": "123abcToken", \
     "apiid": "123abcId", \
     "remote_addr": "192.168.1.1", \
     "remote_port": "16017", \
     "server_protocl": "HTTP/1.1", \
     "connection": "keep-alive", \
-    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36", \
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/62.0.3202.89 Safari\/537.36", \
     "upgrade_insecure_requests": "1", \
-    "http_accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8", \
+    "http_accept": "text\/html,application\/xhtml+xml,application\/xml;q=0.9,image\/webp,image\/apng,*\/*;q=0.8", \
     "accept_encoding": "gzip", \
     "accept_language": "en-US,en;q=0.9", \
     "cookies": "__cfduid=d130c6d17df1705100ccca3f68ac3a5b61506533527;", \
@@ -313,10 +311,10 @@
   </span><span class="s2">"browser_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chrome"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint allows processing of a new visitor to a website where no previous cookie is detected.</p>
+<p>This endpoint allows processing of a new visitor to a website where no previous cookie is detected. All data should be sent <code>JSON</code> encoded.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>POST https://siphon-api.com/v3/visit/new</code></p>
-<h3 id='required-query-parameters'>Required Query Parameters</h3>
+<h3 id='required-parameters'>Required Parameters</h3>
 <p>All of the information being sent to Siphon should not be processed by your system in any way as Siphon will perform its own parsing of fields, this means the data should be &quot;raw&quot;.</p>
 
 <table><thead>
@@ -454,7 +452,7 @@ The requested URL must also be sent in one of the following ways
 <td>The complete url for the request. Siphon will then parse this itself</td>
 </tr>
 </tbody></table>
-<h3 id='optional-query-parameters'>Optional Query Parameters</h3>
+<h3 id='optional-parameters'>Optional Parameters</h3>
 <p>Siphon fully supports the use of Cloudflare and as such accepts the <a href="https://support.cloudflare.com/hc/en-us/articles/200170986-How-does-Cloudflare-handle-HTTP-Request-headers-">custom headers</a> that Cloudflare adds to requests</p>
 
 <table><thead>
@@ -504,62 +502,124 @@ The requested URL must also be sent in one of the following ways
 <td>Set to &#39;true&#39; if you would like additional details on response</td>
 </tr>
 </tbody></table>
-<h2 id='solve-a-captcha'>Solve a captcha</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+<h2 id='solve-a-captcha'>Solve a captcha</h2><pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
+  --url https://siphon-api.com/v3/visit/solvecaptcha/ <span class="se">\</span>
+  --header <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  --header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  --data <span class="s1">'{ \
+    "captcha_token ": "qLweVCIrk2GV", \
+    "captcha_choice": "60" \
+   }'</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>The above command returns JSON structured exactly like the visit/new/ endpoint returns</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<p>This endpoint allows clients to solve Siphon supplied captchas.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<p><code>POST https://siphon-api.com/v3/visit/captchasolve/</code></p>
+<h3 id='required-parameters-2'>Required Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>captcha_token</td>
+<td>string</td>
+<td>The captcha token sent back by Siphon in the original new visit call</td>
+</tr>
+<tr>
+<td>captcha_choice</td>
+<td>string</td>
+<td>The choice of the client in their attempt to solve the captcha</td>
 </tr>
 </tbody></table>
-<h2 id='record-a-maneuver'>Record a maneuver</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
+<h2 id='record-a-maneuver'>Record a maneuver</h2><pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
+  --url https://siphon-api.com/v3/visit/maneuver/ <span class="se">\</span>
+  --header <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  --header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  --data <span class="s1">'{ \
+    "apitoken": "123abcToken", \
+    "apiid": "123abcId", \
+    "fhid": "45044" \
+    "host": "example.com", \
+    "script_name": "/another_page.html", \
+    "query_string": "var5=something6" \
 </span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
+<blockquote>
+<p>The above command returns a response code of 200 when the maneuver is received</p>
+</blockquote>
+
+<p>This endpoint allows the recording of maneuvers on a site by a client after a visit</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<p><code>POST https://siphon-api.com/v3/visit/maneuver/</code></p>
+<h3 id='required-parameters-3'>Required Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td>apitoken</td>
+<td>string</td>
+<td>Authentication parameter that is unique per filter</td>
+</tr>
+<tr>
+<td>apiid</td>
+<td>int</td>
+<td>Authentication parameter that is unique per filter</td>
+</tr>
+<tr>
+<td>fhid</td>
+<td>int</td>
+<td>Authentication parameter that is unique per filter</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+The requested URL must also be sent in one of the following ways
+</aside> 
+<h4 id='separated-url-parameters-2'>Separated URL parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>host</td>
+<td>string</td>
+<td>Domain name of the server</td>
+</tr>
+<tr>
+<td>script_name</td>
+<td>string</td>
+<td>URL path to the script being requested by the client</td>
+</tr>
+<tr>
+<td>query_string</td>
+<td>string</td>
+<td>The query parameters of the request</td>
+</tr>
+</tbody></table>
+<h4 id='single-url-parameter-2'>Single URL parameter</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url</td>
+<td>string</td>
+<td>The complete url for the request. Siphon will then parse this itself</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
