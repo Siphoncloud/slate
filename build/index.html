@@ -243,6 +243,9 @@
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </div>
+        <ul class="toc-footer">
+            <li><a href='https://changelog.siphoncloud.com/'>Changelog</a></li>
+        </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
@@ -252,11 +255,10 @@
 
 <p>Multiple integrations exist already for popular CMS (Content Management Systems) like WordPress and Joomla, we also have a full integration for PHP already that can be downloaded inside your <a href="https://siphoncloud.com/dashboard/traffic-filter-resources.php">dashboard</a>.</p>
 <h1 id='traffic-endpoints'>Traffic Endpoints</h1>
-<p>These endpoints allow for the sending of website traffic and receiving real-time judgements based on filter settings</p>
-<h1 id='visit'>Visit</h1>
-<p>All visit endpoints are located at https://siphon-api.com/v3/visit/</p>
-<h2 id='new-visit'>New Visit</h2>
-<blockquote><p>Replace *"123abcToken"* & *"123abcId"* with your own values</p></blockquote>
+<p>These endpoints allow for the sending of website traffic and receiving real-time judgements based on filter settings. A simple flow chart has also been created to demonstrate the logic for using these endpoints in your application effectively. 
+<a href='images/traffic_endpoints_logic_flow.png'><img src="images/traffic_endpoints_logic_flow.png"></a></p>
+<h1 id='visit'>Visit</h1><h2 id='new-visit'>New Visit</h2>
+<blockquote><p>Replace `123abcToken` & `123abcId` with your own values</p></blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
   --url https://siphon-api.com/v3/visit/new/ <span class="se">\</span>
   --header <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
@@ -266,7 +268,7 @@
     "apiid": "123abcId", \
     "remote_addr": "192.168.1.1", \
     "remote_port": "16017", \
-    "server_protocl": "HTTP/1.1", \
+    "server_protocl": "HTTP\/1.1", \
     "connection": "keep-alive", \
     "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/62.0.3202.89 Safari\/537.36", \
     "upgrade_insecure_requests": "1", \
@@ -280,7 +282,7 @@
     "server_software": "nginx", \
     "server_version": "1.6.2", \
     "host": "example.com", \
-    "script_name": "/something.html", \
+    "script_name": "\/something.html", \
     "query_string": "var1=something", \
     "http_cf_ray": "3be535j29bac91dc-EWR", \
     "http_cf_visitor": "{\"scheme\":\"https\"}", \
@@ -313,7 +315,7 @@
 </span></code></pre>
 <p>This endpoint allows processing of a new visitor to a website where no previous cookie is detected. All data should be sent <code>JSON</code> encoded.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST https://siphon-api.com/v3/visit/new</code></p>
+<p><code>POST https://siphon-api.com/v3/visit/new/</code></p>
 <h3 id='required-parameters'>Required Parameters</h3>
 <p>All of the information being sent to Siphon should not be processed by your system in any way as Siphon will perform its own parsing of fields, this means the data should be &quot;raw&quot;.</p>
 

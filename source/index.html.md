@@ -5,7 +5,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - shell: cURL
 
 toc_footers:
-
+ - <a href='https://changelog.siphoncloud.com/'>Changelog</a>
 
 includes:
   - errors
@@ -20,11 +20,12 @@ Welcome to the Siphon API! You can use our API to access Siphon API endpoints, w
 Multiple integrations exist already for popular CMS (Content Management Systems) like WordPress and Joomla, we also have a full integration for PHP already that can be downloaded inside your [dashboard](https://siphoncloud.com/dashboard/traffic-filter-resources.php).
 
 # Traffic Endpoints
-These endpoints allow for the sending of website traffic and receiving real-time judgements based on filter settings
+These endpoints allow for the sending of website traffic and receiving real-time judgements based on filter settings. A simple flow chart has also been created to demonstrate the logic for using these endpoints in your application effectively. 
+<a href='images/traffic_endpoints_logic_flow.png'><img src="images/traffic_endpoints_logic_flow.png"></a>
 # Visit
-All visit endpoints are located at https://siphon-api.com/v3/visit/
+
 ## New Visit
-<blockquote><p>Replace *"123abcToken"* & *"123abcId"* with your own values</p></blockquote>
+<blockquote><p>Replace `123abcToken` & `123abcId` with your own values</p></blockquote>
 
 ```shell 
 curl --request POST \
@@ -36,7 +37,7 @@ curl --request POST \
     "apiid": "123abcId", \
     "remote_addr": "192.168.1.1", \
     "remote_port": "16017", \
-    "server_protocl": "HTTP/1.1", \
+    "server_protocl": "HTTP\/1.1", \
     "connection": "keep-alive", \
     "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/62.0.3202.89 Safari\/537.36", \
     "upgrade_insecure_requests": "1", \
@@ -50,7 +51,7 @@ curl --request POST \
     "server_software": "nginx", \
     "server_version": "1.6.2", \
     "host": "example.com", \
-    "script_name": "/something.html", \
+    "script_name": "\/something.html", \
     "query_string": "var1=something", \
     "http_cf_ray": "3be535j29bac91dc-EWR", \
     "http_cf_visitor": "{\"scheme\":\"https\"}", \
@@ -87,7 +88,7 @@ This endpoint allows processing of a new visitor to a website where no previous 
 
 ### HTTP Request
 
-`POST https://siphon-api.com/v3/visit/new`
+`POST https://siphon-api.com/v3/visit/new/`
 
 ### Required Parameters
 All of the information being sent to Siphon should not be processed by your system in any way as Siphon will perform its own parsing of fields, this means the data should be "raw".
