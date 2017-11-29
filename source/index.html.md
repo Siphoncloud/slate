@@ -92,7 +92,7 @@ This endpoint allows processing of a new visitor to a website where no previous 
 `POST https://siphon-api.com/v3/visit/new/`
 
 ### Required Parameters
-All of the information being sent to Siphon should not be processed by your system in any way as Siphon will perform its own parsing of fields, this means the data should be "raw".
+All of the information being sent to Siphon should not be processed by your system in any way as Siphon will perform its own parsing of fields.
 
 Parameter | Type | Description
 --------- | ------- | -----------
@@ -102,11 +102,11 @@ remote_addr | string | Either an IPv4 or IPv6 address of the visitor
 remote_port | int | Port that the connection was made to the web server on 
 server_protocl | string | The hypertext transfer protocol version. Typically either "HTTP 1.1" or "HTTP 1.0"
 connection | string | either "keep-alive" or "close"
-user_agent | string | Raw user-agent string received from the client
-upgrade_insecure_requests | int | Raw HTTP header sent by the client
-http_accept | string | Raw HTTP header sent by the client
-accept_encoding | string | Raw HTTP header sent by the client
-accept_language | string | Raw HTTP header sent by the client
+user_agent | string | User-agent string received from the client
+upgrade_insecure_requests | int | HTTP header sent by the client
+http_accept | string | HTTP header sent by the client
+accept_encoding | string | HTTP header sent by the client
+accept_language | string | HTTP header sent by the client
 cookies | string or null | List of cookies the client is using separated by semicolons or a null value for no cookies
 request_method | string | Type of request of the client made, typically is one of the following: "post", "put", or "get"
 request_time | string | A unix timestamp of when the request was first received
@@ -135,11 +135,11 @@ Siphon fully supports the use of Cloudflare and as such accepts the [custom head
 
 Parameter | Type | Description
 --------- | ------- | -----------
-http_cf_ray | string | Raw header added by Cloudflare
-http_cf_visitor | string | Raw header added by Cloudflare
-http_cf_connecting_ip | string | Raw header added by Cloudflare
-http_x_forwarded_proto | string | Raw header added by Cloudflare
-http_x_forwarded_for | string | Raw header added by Cloudflare
+http_cf_ray | string | header added by Cloudflare
+http_cf_visitor | string | header added by Cloudflare
+http_cf_connecting_ip | string | header added by Cloudflare
+http_x_forwarded_proto | string | header added by Cloudflare
+http_x_forwarded_for | string | header added by Cloudflare
 
 
 Parameter | Type | Description
